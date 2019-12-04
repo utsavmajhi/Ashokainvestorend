@@ -41,7 +41,7 @@ class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 0:
             { return "Invested Pools";}
             case 1:
-            {return  "All Pool";}
+            {return  "All Pools";}
 
 
 

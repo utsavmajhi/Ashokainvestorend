@@ -17,4 +17,7 @@ public class MainActivity extends AppCompatActivity {
     public void click(View view) {
         startActivity(new Intent(this,homepage.class));
     }
+
+    public void clickregister(View view) {
+    }
 }

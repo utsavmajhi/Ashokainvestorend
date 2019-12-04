@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class homepage extends AppCompatActivity {
+public class homepage extends AppCompatActivity  {
     private ViewPager mviewpager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private TabLayout  mtablayout;

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,14 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
 
     Context mContext;
     private ArrayList<poolitems> mpoolitemslist;
+    private onitemclicklistener mListener;
+//click listener for items on recycler
+    public interface onitemclicklistener{
+        void onItemClick(int position);
+    }
+    public void setOnItemClickListener(onitemclicklistener listener){
+        mListener=listener;
+    }
 
     public poolAdapter(Context mContext, ArrayList<poolitems> mpoolitemslist) {
         this.mContext = mContext;
@@ -36,7 +45,7 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
 
         holder.mpoolname.setText(mpoolitemslist.get(position).getPoolname());
@@ -45,6 +54,21 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
         holder.mlocation.setText(mpoolitemslist.get(position).getLocation());
          //holder set imageview for now there is default set(USE PICASSO METHOD TO LOAD IMAGES)
         //Picasso.with(this).load().into();
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                poolitems m=mpoolitemslist.get(position);
+                String pname=m.getPoolname();
+                String plocation=m.getLocation();
+                String preport=m.getReport();
+
+
+
+
+            }
+        });
     }
 
     @Override
@@ -67,6 +91,9 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
             mlocation=itemView.findViewById(R.id.pooladdresstxt);
             marea=itemView.findViewById(R.id.poolarea);
             mprofit=itemView.findViewById(R.id.poolprofit);
+
+
+
 
         }
     }
