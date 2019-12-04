@@ -1,4 +1,4 @@
-package com.example.ashokainvestorend;
+package com.example.ashokainvestorend.allpoolrecyclerdata;
 
 public class poolitems {
     private String mImageurl;
@@ -11,7 +11,7 @@ public class poolitems {
         this.poolname = poolname;
         this.area = area;
         this.location = location;
-        Report = report;
+        this.Report = report;
         this.profit = profit;
     }
 

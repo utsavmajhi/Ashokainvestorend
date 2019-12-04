@@ -27,8 +27,6 @@ public class homepage extends AppCompatActivity {
         mtablayout=(TabLayout) findViewById(R.id.maintabs);
         mtablayout.setupWithViewPager(mviewpager);
 
-
-
     }
 
 

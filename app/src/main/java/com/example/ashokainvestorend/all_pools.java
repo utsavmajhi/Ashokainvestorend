@@ -1,7 +1,6 @@
 package com.example.ashokainvestorend;
 
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -20,6 +19,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ashokainvestorend.allpoolrecyclerdata.poolAdapter;
+import com.example.ashokainvestorend.allpoolrecyclerdata.poolitems;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,8 +39,6 @@ public class all_pools extends Fragment {
     View v;
     private ArrayList<poolitems> listdata;
     private ArrayList<poolitems> tempList;
-    private ArrayList<poolitems> mpoollist;
-
     public all_pools() {
         // Required empty public constructor
     }

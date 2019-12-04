@@ -9,19 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
+import com.example.ashokainvestorend.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
+public class investpoolAdapter extends RecyclerView.Adapter<investpoolAdapter.MyViewHolder>{
 
     Context mContext;
-    private ArrayList<poolitems> mpoolitemslist;
+    private ArrayList<invespoolitems> mpoolitemslist;
 
-    public poolAdapter(Context mContext, ArrayList<poolitems> mpoolitemslist) {
+    public investpoolAdapter(Context mContext, ArrayList<invespoolitems> mpoolitemslist) {
         this.mContext = mContext;
         this.mpoolitemslist = mpoolitemslist;
     }
@@ -30,6 +29,8 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v;
+
+        //change the views as you want by just changing the layout single applist
         v= LayoutInflater.from(mContext).inflate(R.layout.applist_item,parent,false);
         MyViewHolder vHolder=new MyViewHolder(v);
 
@@ -44,7 +45,7 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
         holder.mprofit.setText(mpoolitemslist.get(position).getProfit());
         holder.marea.setText(mpoolitemslist.get(position).getArea());
         holder.mlocation.setText(mpoolitemslist.get(position).getLocation());
-         //holder set imageview for now there is default set(USE PICASSO METHOD TO LOAD IMAGES)
+        //holder set imageview for now there is default set(USE PICASSO METHOD TO LOAD IMAGES)
         //Picasso.with(this).load().into();
     }
 
@@ -60,6 +61,7 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
         public TextView mlocation;
         public TextView marea;
         public TextView mprofit;
+        //public TextView mreport;
         //public TextView mextraattribute;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
