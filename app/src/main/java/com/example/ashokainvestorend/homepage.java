@@ -1,9 +1,10 @@
-package com.example.ashokainvestorend;
+package com.example.ashokainvestorend;;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -13,14 +14,14 @@ import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
-public class homepage extends AppCompatActivity  {
+import static android.media.CamcorderProfile.get;
+
+public class homepage extends AppCompatActivity {
     private ViewPager mviewpager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private TabLayout  mtablayout;
@@ -32,7 +33,7 @@ public class homepage extends AppCompatActivity  {
         setContentView(R.layout.activity_homepage);
         mtoolbar=(Toolbar)findViewById(R.id.main_page_toolbar);
 
-
+      //NAVIGATION BAR DIRECTLY IMPORTED FROM MIKEPENZ
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.header)
@@ -84,10 +85,7 @@ public class homepage extends AppCompatActivity  {
                     }
                 })
                 .build();
-
-
-
-
+        //NAVIGATION DRAWER ENDS
 
         setSupportActionBar(mtoolbar);
         getSupportActionBar().setTitle("Ashoka Investor");
@@ -100,5 +98,8 @@ public class homepage extends AppCompatActivity  {
 
     }
 
+//CLICKING ACTIVITY FOR ALLPOOLS
+
+    //CLICKING ACTIVITY ENDS FOR ALL POOLS
 
 }
