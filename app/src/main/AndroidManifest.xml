@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".invpoolexpand"></activity>
+        <activity android:name=".investpayactivity"></activity>
+        <activity android:name=".alltransactionpage" />
+        <activity android:name=".profileactivity" />
+        <activity android:name=".invpoolexpand" />
         <activity android:name=".apoolexpand_activity" />
         <activity android:name=".registeringuser" />
         <activity android:name=".homepage" />

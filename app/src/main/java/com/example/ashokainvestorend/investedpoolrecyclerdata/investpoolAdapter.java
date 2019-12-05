@@ -1,15 +1,18 @@
 package com.example.ashokainvestorend.investedpoolrecyclerdata;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ashokainvestorend.R;
+import com.example.ashokainvestorend.invpoolexpand;
 
 import java.util.ArrayList;
 
@@ -18,6 +21,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class investpoolAdapter extends RecyclerView.Adapter<investpoolAdapter.MyViewHolder>{
 
     Context mContext;
+    public static final String EXTRA_URL="imageurl";
+    public static final String EXTRA_NAME="user";
+    public static final String EXTRA_LOCATION="views";
+    public static final String EXTRA_PROFIT="views";
+    //added extra datas for manipulating later(report is not initialised currently)
+    public static final String EXTRA_REPORT="imageurl";
+    public  static final String EXTRA_AREA="imageHeight";
     private ArrayList<invespoolitems> mpoolitemslist;
 
     public investpoolAdapter(Context mContext, ArrayList<invespoolitems> mpoolitemslist) {
@@ -38,7 +48,7 @@ public class investpoolAdapter extends RecyclerView.Adapter<investpoolAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
 
         holder.mpoolname.setText(mpoolitemslist.get(position).getPoolname());
@@ -47,6 +57,32 @@ public class investpoolAdapter extends RecyclerView.Adapter<investpoolAdapter.My
         holder.mlocation.setText(mpoolitemslist.get(position).getLocation());
         //holder set imageview for now there is default set(USE PICASSO METHOD TO LOAD IMAGES)
         //Picasso.with(this).load().into();
+
+
+        //Click listener
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                invespoolitems m=mpoolitemslist.get(position);
+                String pname=m.getPoolname();
+                String plocation=m.getLocation();
+                String preport=m.getReport();
+                String parea=m.getArea();
+                String pprofit=m.getProfit();
+                String pimage=m.getmImageurl();
+                Toast.makeText(mContext, "entered inpoolexpand"+pname, Toast.LENGTH_SHORT).show();
+                Intent i=new Intent(view.getContext(), invpoolexpand.class);
+                i.putExtra(EXTRA_URL,pimage);
+                i.putExtra(EXTRA_NAME,pname);
+                i.putExtra(EXTRA_AREA,parea);
+                i.putExtra(EXTRA_LOCATION,plocation);
+                i.putExtra(EXTRA_REPORT,preport);
+                i.putExtra(EXTRA_PROFIT,pprofit);
+                view.getContext().startActivity(i);
+            }
+        });
+        //Click listener ends
+
     }
 
     @Override
