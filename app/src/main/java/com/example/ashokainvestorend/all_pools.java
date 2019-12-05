@@ -32,7 +32,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class all_pools extends Fragment {
+public class all_pools extends Fragment{
     private RecyclerView mRecyclerView;
     private poolAdapter recycleradapter;
     private RequestQueue mRequestQueue;
@@ -108,4 +108,5 @@ public class all_pools extends Fragment {
         //mpoollist=new ArrayList<>();
 
     }
+
 }
