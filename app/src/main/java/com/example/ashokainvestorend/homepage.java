@@ -51,8 +51,11 @@ public class homepage extends AppCompatActivity {
 
 
         //if you want to update the items at a later time it is recommended to keep it in a variable
-        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Home");
-        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Settings");
+        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Profile");
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Balance");
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName("Transactions History");
+        PrimaryDrawerItem item4=new PrimaryDrawerItem().withIdentifier(4).withName("Logout");
+
 
         //create the drawer and remember the `Drawer` result object
         Drawer result = new DrawerBuilder()
@@ -64,7 +67,7 @@ public class homepage extends AppCompatActivity {
                 .withDisplayBelowStatusBar(false)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        item1, item2
+                        item1, item2,item3,item4
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -75,11 +78,23 @@ public class homepage extends AppCompatActivity {
                         switch (position)
                         {
                             case 1:
-                                Toast.makeText(homepage.this, "working", Toast.LENGTH_SHORT).show();
+                                //pass token for getting user details
+                                Intent p1=new Intent(homepage.this,profileactivity.class);
+                                //pass the token or required details
+                                startActivity(p1);
                                 break;
                             case 2:
                                 Toast.makeText(homepage.this, "working", Toast.LENGTH_SHORT).show();
                                 break;
+                            case 3:
+                                startActivity(new Intent(homepage.this,alltransactionpage.class));
+                                break;
+                            case 4:
+                                  //  logout();
+                                Toast.makeText(homepage.this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(homepage.this,MainActivity.class));
+                                break;
+
                         }
                         return true;
                     }

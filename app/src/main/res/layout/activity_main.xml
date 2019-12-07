@@ -96,7 +96,6 @@
                     android:hint="Phone"
                     android:imeOptions="actionNext"
                     android:inputType="text"
-                    android:nextFocusDown="@id/lgpass"
                     android:textColor="@color/black">
 
                     <requestFocus />
