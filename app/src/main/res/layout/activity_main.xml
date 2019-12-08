@@ -12,7 +12,7 @@
         android:layout_width="108dp"
         android:layout_height="45dp"
         android:layout_marginTop="52dp"
-        android:background="@drawable/gradient_splash_background"
+        android:background="@drawable/imggg"
         android:onClick="clickregister"
         android:text="Register"
         android:textColor="@color/white"
@@ -24,7 +24,7 @@
         android:id="@+id/login_cover_ll"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@drawable/gradient_splash_background"
+        android:background="@drawable/imggg"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -154,7 +154,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="52dp"
-        android:background="@drawable/gradient_splash_background"
+        android:background="@drawable/imggg"
         android:onClick="click"
         android:text="Login"
         android:textColor="@color/white"
