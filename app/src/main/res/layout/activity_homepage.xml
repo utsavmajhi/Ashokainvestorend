@@ -10,20 +10,21 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/imggg"
+        android:background="@color/md_red_900"
         app:layout_constraintTop_toTopOf="parent">
 
         <include
             android:id="@+id/main_page_toolbar"
-            layout="@layout/app_bar_layout"
-            android:background="@color/followersBg">
+            layout="@layout/app_bar_layout">
 
         </include>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/maintabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="@color/material_drawer_dark_header_selection_text"
+            app:tabTextColor="@color/material_drawer_background">
 
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>

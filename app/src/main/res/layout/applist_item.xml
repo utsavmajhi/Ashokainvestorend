@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/message_single_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="130dp"
     android:addStatesFromChildren="false"
-    android:background="@drawable/imgg"
+    android:background="@color/md_grey_300"
     android:padding="10dp">
 
 

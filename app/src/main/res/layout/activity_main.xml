@@ -12,9 +12,10 @@
         android:layout_width="108dp"
         android:layout_height="45dp"
         android:layout_marginTop="52dp"
-        android:background="@drawable/imggg"
+        android:background="@color/md_blue_grey_300"
         android:onClick="clickregister"
         android:text="Register"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lgbtn"
@@ -24,7 +25,7 @@
         android:id="@+id/login_cover_ll"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@drawable/imggg"
+        android:background="@color/md_red_900"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -154,9 +155,10 @@
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="52dp"
-        android:background="@drawable/imggg"
+        android:background="@color/md_blue_grey_300"
         android:onClick="click"
         android:text="Login"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />

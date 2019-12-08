@@ -33,6 +33,8 @@ public class homepage extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
         mtoolbar=(Toolbar)findViewById(R.id.main_page_toolbar);
 
+        setSupportActionBar(mtoolbar);
+        getSupportActionBar().setTitle("Ashoka Investor");
       //NAVIGATION BAR DIRECTLY IMPORTED FROM MIKEPENZ
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -102,9 +104,7 @@ public class homepage extends AppCompatActivity {
                 .build();
         //NAVIGATION DRAWER ENDS
 
-        setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Ashoka Investor");
-        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
+        //result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
         mviewpager=(ViewPager) findViewById(R.id.maintabpager);
         mSectionsPagerAdapter=new SectionsPagerAdapter(getSupportFragmentManager());
         mviewpager.setAdapter(mSectionsPagerAdapter);

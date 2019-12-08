@@ -12,10 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".investpayactivity"></activity>
-        <activity android:name=".alltransactionpage" />
-        <activity android:name=".profileactivity" />
-        <activity android:name=".invpoolexpand" />
-        <activity android:name=".apoolexpand_activity" />
+        <activity android:name=".alltransactionpage"
+            android:parentActivityName=".homepage"/>
+        <activity android:name=".profileactivity"
+            android:parentActivityName=".homepage"/>
+
+
+        <activity android:name=".invpoolexpand"
+            android:parentActivityName=".homepage"/>
+        <activity android:name=".apoolexpand_activity"
+            android:parentActivityName=".homepage"/>
         <activity android:name=".registeringuser" />
         <activity android:name=".homepage" />
         <activity android:name=".MainActivity">
