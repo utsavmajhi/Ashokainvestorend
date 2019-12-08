@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back8"
+    android:background="@drawable/imggg"
     tools:context=".invpoolexpand">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/imggg">
 
         <Button
             android:id="@+id/investbtnalready"
             android:layout_width="158dp"
             android:layout_height="58dp"
             android:layout_marginTop="48dp"
-            android:background="@drawable/gradient_splash_background"
+            android:background="@drawable/images"
             android:onClick="investclickalready"
             android:text="Invest Money"
             android:textColor="@color/white"
@@ -26,12 +28,13 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
-            android:layout_width="394dp"
+            android:layout_width="370dp"
             android:layout_height="159dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="5dp"
-            app:cardCornerRadius="30dp"
+            android:background="@drawable/imgg"
+            app:cardCornerRadius="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -150,12 +153,13 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
-            android:layout_width="252dp"
+            android:layout_width="370dp"
             android:layout_height="87dp"
             android:layout_margin="5dp"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
-            app:cardCornerRadius="30dp"
+            android:background="@drawable/imgg"
+            app:cardCornerRadius="0dp"
             app:contentPadding="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -174,9 +178,9 @@
                     android:layout_marginTop="16dp"
                     android:text="Total Investments till now"
                     android:textSize="18sp"
-                    android:textStyle="bold|italic"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.333"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -185,12 +189,13 @@
                     android:layout_width="186dp"
                     android:layout_height="30dp"
                     android:text="Rs 123400"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.091"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView13"
+                    app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -198,12 +203,13 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
-            android:layout_width="383dp"
+            android:layout_width="370dp"
             android:layout_height="250dp"
             android:layout_margin="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            app:cardCornerRadius="25dp"
+            android:background="@drawable/imgg"
+            app:cardCornerRadius="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView2">
