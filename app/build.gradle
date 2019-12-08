@@ -41,6 +41,5 @@ dependencies {
     implementation "com.mikepenz:materialdrawer:6.1.2"
 
 
-
 //required support lib modules
 }

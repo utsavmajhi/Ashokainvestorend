@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/alltrantoolbar"
+            android:id="@+id/ptrantoolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/md_red_900"
@@ -23,7 +23,7 @@
         </androidx.appcompat.widget.Toolbar>
 
         <TextView
-            android:id="@+id/alltransactionstxt"
+            android:id="@+id/pooltransactionstxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="TextView" />

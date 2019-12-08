@@ -11,17 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".investpayactivity"></activity>
-        <activity android:name=".alltransactionpage"
-            android:parentActivityName=".homepage"/>
-        <activity android:name=".profileactivity"
-            android:parentActivityName=".homepage"/>
+        <activity android:name=".particularpalltransa"
+            android:parentActivityName=".invpoolexpand">
 
-
-        <activity android:name=".invpoolexpand"
-            android:parentActivityName=".homepage"/>
-        <activity android:name=".apoolexpand_activity"
-            android:parentActivityName=".homepage"/>
+        </activity>
+        <activity android:name=".investpayactivity" />
+        <activity
+            android:name=".alltransactionpage"
+            android:parentActivityName=".homepage" />
+        <activity
+            android:name=".profileactivity"
+            android:parentActivityName=".homepage" />
+        <activity
+            android:name=".invpoolexpand"
+            android:parentActivityName=".homepage" />
+        <activity
+            android:name=".apoolexpand_activity"
+            android:parentActivityName=".homepage" />
         <activity android:name=".registeringuser" />
         <activity android:name=".homepage" />
         <activity android:name=".MainActivity">

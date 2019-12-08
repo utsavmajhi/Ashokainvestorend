@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 public class registeringuser extends AppCompatActivity {
 
 
@@ -25,7 +23,7 @@ public class registeringuser extends AppCompatActivity {
         rpass=findViewById(R.id.regispass);
         raadhar=findViewById(R.id.regisaadhar);
         rphone=findViewById(R.id.regisphone);
-        rdob=findViewById(R.id.regisdob);
+        rdob=findViewById(R.id.regisemail);
     }
 
 
