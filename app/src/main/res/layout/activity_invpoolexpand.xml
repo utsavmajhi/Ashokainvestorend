@@ -154,7 +154,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
                 <TextView
-                    android:id="@+id/inexweeklyfund"
+                    android:id="@+id/inextotinvest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -197,7 +197,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/inexcurreinv"
+                    android:id="@+id/inexowninv"
                     android:layout_width="91dp"
                     android:layout_height="22dp"
                     android:text="Rs 123400"
@@ -263,7 +263,6 @@
                     android:layout_height="181dp"
                     android:layout_marginTop="3dp"
                     android:scrollbars="vertical"
-                    android:text="Crops Harvested till Now:Tomato \nExpected Profits Previous week:"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

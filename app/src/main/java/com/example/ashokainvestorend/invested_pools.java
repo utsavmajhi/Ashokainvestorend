@@ -38,6 +38,7 @@ public class invested_pools extends Fragment {
 
     private RecyclerView mRecyclerView;
     int previnv=0;
+    int totalinvestedbyhim=0;
     private investpoolAdapter recycleradapter;
     private RequestQueue mRequestQueue;
     View v;
@@ -139,10 +140,20 @@ public class invested_pools extends Fragment {
                         String poolengineerid=invpool.get(i).getEngineerId();
                         String plocation=invpool.get(i).getLocation();
                         String ptotinvests= String.valueOf(invpool.get(i).getTotalInvestment());
+                        totalinvestedbyhim+=invpool.get(i).getTotalInvestment();
                         String profits= String.valueOf(invpool.get(i).getPrevProfits());
                         listdata.add(new invespoolitems(poolid,poolengineerid,pname,ptotinvests,plocation,"",profits));
                         recycleradapter.notifyDataSetChanged();
                     }
+                    //for storing all total investments in all pools
+                    SharedPreferences sharedPreferences=getActivity().getSharedPreferences("Secrets",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                    editor.putString("totalinvestmentstillnow", String.valueOf(totalinvestedbyhim));
+                    editor.putString("noofinvestedpools", String.valueOf(invpool.size()));
+                    editor.apply();
+                    //shared preferences end
+
+
                     recycleradapter = new investpoolAdapter(getActivity(),listdata);
                     mRecyclerView.setAdapter(recycleradapter);
                     /*

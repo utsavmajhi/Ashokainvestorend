@@ -1,7 +1,8 @@
 
-package com.example.ashokainvestorend;
+package com.example.ashokainvestorend.allpoolrecyclerdata;
 
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

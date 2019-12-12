@@ -34,6 +34,8 @@ public class profileactivity extends AppCompatActivity {
         String currentph=sharedPreferences.getString("phone","");
         String currentaadhar=sharedPreferences.getString("aadhar","");
         String currenttoken=sharedPreferences.getString("token","");
+        String currentnofpoolinvested=sharedPreferences.getString("noofinvestedpools","");
+        String currenttotalinvestments=sharedPreferences.getString("totalinvestmentstillnow","");
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -44,6 +46,8 @@ public class profileactivity extends AppCompatActivity {
         profileemail.setText(currentemail);
         profileaadhar.setText(currentaadhar);
         profilephn.setText(currentph);
+        profiletotinvest.setText("Rs "+currenttotalinvestments);
+        pronofinvetpools.setText(currentnofpoolinvested);
 
 
     }

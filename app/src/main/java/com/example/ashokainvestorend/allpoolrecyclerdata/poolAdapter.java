@@ -72,6 +72,7 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
             public void onClick(View view) {
                 poolitems m=mpoolitemslist.get(position);
                 String pname=m.getPoolname();
+                String pid=m.getPoolid();
                 String plocation=m.getLocation();
                 String preport=m.getReport();
                 String ptotinvest=m.getTotalinvests();
@@ -79,12 +80,7 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
                 //String pimage=m.getmImageurl();
                 Toast.makeText(mContext, "entered apoolexpand"+pname, Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(view.getContext(), apoolexpand_activity.class);
-              /*  i.putExtra(EXTRA_URL,pimage);
-                i.putExtra(EXTRA_NAME,pname);
-                i.putExtra(EXTRA_AREA,parea);
-                i.putExtra(EXTRA_LOCATION,plocation);
-                i.putExtra(EXTRA_REPORT,preport);
-                i.putExtra(EXTRA_PROFIT,pprofit);*/
+                i.putExtra("ID_EXTRA",new String[]{pid,pname,plocation,ptotinvest,pprofit});
                 view.getContext().startActivity(i);
 
 

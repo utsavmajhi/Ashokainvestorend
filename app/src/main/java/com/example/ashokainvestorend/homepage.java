@@ -63,9 +63,8 @@ public class homepage extends AppCompatActivity {
 
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Profile");
-        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Balance");
-        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName("Transactions History");
-        PrimaryDrawerItem item4=new PrimaryDrawerItem().withIdentifier(4).withName("Logout");
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Transactions History");
+        PrimaryDrawerItem item3=new PrimaryDrawerItem().withIdentifier(3).withName("Logout");
 
 
         //create the drawer and remember the `Drawer` result object
@@ -78,7 +77,7 @@ public class homepage extends AppCompatActivity {
                 .withDisplayBelowStatusBar(false)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        item1, item2,item3,item4
+                        item1,item2,item3
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -95,12 +94,9 @@ public class homepage extends AppCompatActivity {
                                 startActivity(p1);
                                 break;
                             case 2:
-                                Toast.makeText(homepage.this, "working", Toast.LENGTH_SHORT).show();
-                                break;
-                            case 3:
                                 startActivity(new Intent(homepage.this,alltransactionpage.class));
                                 break;
-                            case 4:
+                            case 3:
                                   //  logout();
                                 Toast.makeText(homepage.this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
                                 //during logout

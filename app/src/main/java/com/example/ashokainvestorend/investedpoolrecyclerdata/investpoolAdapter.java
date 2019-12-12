@@ -64,13 +64,15 @@ public class investpoolAdapter extends RecyclerView.Adapter<investpoolAdapter.My
             @Override
             public void onClick(View view) {
                 invespoolitems m=mpoolitemslist.get(position);
+                String pid=m.getPoolid();
                 String pname=m.getPoolname();
                 String plocation=m.getLocation();
                 String preport=m.getReport();
                 String ptotinvests=m.getTotalinvests();
                 String pprofit=m.getPrevprofit();
-                Toast.makeText(mContext, "entered inpoolexpand"+pname, Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "entered inpoolexpand"+pid, Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(view.getContext(), invpoolexpand.class);
+                i.putExtra("ID_EXTRA",new String[]{pid,pname,plocation,preport,ptotinvests,pprofit});
 
                 //send the data to the next page
                 /*i.putExtra(EXTRA_URL,pimage);

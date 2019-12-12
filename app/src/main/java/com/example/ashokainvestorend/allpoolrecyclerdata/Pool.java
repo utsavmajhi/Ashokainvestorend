@@ -1,5 +1,5 @@
 
-package com.example.ashokainvestorend;
+package com.example.ashokainvestorend.allpoolrecyclerdata;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -9,7 +9,7 @@ public class Pool {
 
     @SerializedName("totalInvestment")
     @Expose
-    private Integer totalInvestment;
+    private Double totalInvestment;
     @SerializedName("prevProfits")
     @Expose
     private List<Object> prevProfits = null;
@@ -41,11 +41,11 @@ public class Pool {
     @Expose
     private Integer v;
 
-    public Integer getTotalInvestment() {
+    public Double getTotalInvestment() {
         return totalInvestment;
     }
 
-    public void setTotalInvestment(Integer totalInvestment) {
+    public void setTotalInvestment(Double totalInvestment) {
         this.totalInvestment = totalInvestment;
     }
 

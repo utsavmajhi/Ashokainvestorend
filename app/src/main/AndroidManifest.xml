@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".particularpalltransa"
-            android:parentActivityName=".invpoolexpand">
-
-        </activity>
+        <activity android:name=".paymentpage"></activity>
+        <activity
+            android:name=".particularpalltransa"
+            android:parentActivityName=".homepage"></activity>
         <activity android:name=".investpayactivity" />
         <activity
             android:name=".alltransactionpage"

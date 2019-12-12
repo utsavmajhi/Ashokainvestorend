@@ -155,7 +155,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
                 <TextView
-                    android:id="@+id/apweeklyfundtxt"
+                    android:id="@+id/aptotalinvested"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -198,10 +198,9 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/appooldescrp"
                     android:layout_width="340dp"
                     android:layout_height="87dp"
-                    android:text="We grow mostly potatoes and Tomatoes in the field"
                     app:layout_constraintStart_toStartOf="@+id/textView13"
                     app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -242,7 +241,6 @@
                     android:layout_height="181dp"
                     android:layout_marginTop="3dp"
                     android:scrollbars="vertical"
-                    android:text="Crops Harvested till Now:Tomato \nExpected Profits Previous week:"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.652"

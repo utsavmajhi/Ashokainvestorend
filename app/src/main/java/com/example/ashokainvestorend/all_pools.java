@@ -14,17 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.ashokainvestorend.allpoolrecyclerdata.Getallpoolsformat;
+import com.example.ashokainvestorend.allpoolrecyclerdata.Pool;
 import com.example.ashokainvestorend.allpoolrecyclerdata.poolAdapter;
 import com.example.ashokainvestorend.allpoolrecyclerdata.poolitems;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,10 +69,6 @@ public class all_pools extends Fragment{
 
     private void AmbilData() {
         SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("Secrets",MODE_PRIVATE);
-        String currentusername=sharedPreferences.getString("username","");
-        String currentemail=sharedPreferences.getString("email","");
-        String currentph=sharedPreferences.getString("phone","");
-        String currentaadhar=sharedPreferences.getString("aadhar","");
         String currenttoken=sharedPreferences.getString("token","");
 
         //backend retrofit
@@ -121,51 +111,6 @@ public class all_pools extends Fragment{
             }
         });
 
-
-
-
-
-
-
-
-
-       /*
-        String url="https://pixabay.com/api/?key=5303976-fd6581ad4ac165d1b75cc15b3&q=kitten&image_type=photo&pretty=true";
-        JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray=response.getJSONArray("hits");
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject hit = jsonArray.getJSONObject(i);
-                                String poolname = hit.getString("user");
-                                String mImageurl= hit.getString("tags");
-                                String area = hit.getString("imageHeight");
-                                String location = hit.getString("views");
-                                String profit=hit.getString("views");
-                                String Report=hit.getString("downloads");
-
-                                //remember maintain the same order as in poolitemslist.java
-                                tempList.add(new poolitems(mImageurl,poolname,area,location,profit,Report));
-                                recycleradapter.notifyDataSetChanged();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        listdata.clear();
-                        listdata.addAll(tempList);
-                        recycleradapter.notifyDataSetChanged();}
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        Volley.newRequestQueue(getActivity()).add(request);
-
-        */
     }
 
     @Override
