@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_red_900"
+    android:background="@color/material_drawer_selected_legacy"
     tools:context=".apoolexpand_activity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,14 +28,15 @@
 
         <Button
             android:id="@+id/investbtn"
-            android:layout_width="158dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="28dp"
+            android:layout_width="154dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
             android:background="@color/md_blue_grey_300"
             android:onClick="investclick"
             android:text="Invest Money"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
@@ -44,6 +45,7 @@
             android:layout_width="375dp"
             android:layout_height="159dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
             app:cardCornerRadius="5dp"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,6 +1,7 @@
 package com.example.ashokainvestorend;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -15,7 +16,6 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -27,6 +27,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -65,6 +74,62 @@ public class all_pools extends Fragment{
     }
 
     private void AmbilData() {
+        SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("Secrets",MODE_PRIVATE);
+        String currentusername=sharedPreferences.getString("username","");
+        String currentemail=sharedPreferences.getString("email","");
+        String currentph=sharedPreferences.getString("phone","");
+        String currentaadhar=sharedPreferences.getString("aadhar","");
+        String currenttoken=sharedPreferences.getString("token","");
+
+        //backend retrofit
+
+        Retrofit.Builder builder=new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
+                .addConverterFactory(GsonConverterFactory.create());
+        Retrofit retrofit=builder.build();
+        ApiInterface apiInterface=retrofit.create(ApiInterface.class);
+        Call<Getallpoolsformat> call=apiInterface.getallpools(currenttoken);
+        call.enqueue(new Callback<Getallpoolsformat>() {
+            @Override
+            public void onResponse(Call<Getallpoolsformat> call, Response<Getallpoolsformat> response) {
+                if(response.isSuccessful())
+                {
+                    List<Pool> allpool=response.body().getPools();
+                    for(int i=0;i<allpool.size();i++)
+                    {
+                        String pname=allpool.get(i).getName();
+                        String poolid=allpool.get(i).getId();
+                        String poolengineerid=allpool.get(i).getEngineerId();
+                        String plocation=allpool.get(i).getLocation();
+                        String ptotinvests= String.valueOf(allpool.get(i).getTotalInvestment());
+                        String profits= String.valueOf(allpool.get(i).getPrevProfits());
+                        listdata.add(new poolitems(poolid,poolengineerid,pname,ptotinvests,plocation,"",profits));
+                        recycleradapter.notifyDataSetChanged();
+                    }
+                    recycleradapter = new poolAdapter(getActivity(),listdata);
+                    mRecyclerView.setAdapter(recycleradapter);
+                }
+                else
+                {
+                    Toast.makeText(getContext(), "Error:"+response.code(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Getallpoolsformat> call, Throwable t) {
+                Toast.makeText(getContext(), "Error:"+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+
+
+
+
+       /*
         String url="https://pixabay.com/api/?key=5303976-fd6581ad4ac165d1b75cc15b3&q=kitten&image_type=photo&pretty=true";
         JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -99,6 +164,8 @@ public class all_pools extends Fragment{
         });
 
         Volley.newRequestQueue(getActivity()).add(request);
+
+        */
     }
 
     @Override

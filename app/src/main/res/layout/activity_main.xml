@@ -94,7 +94,7 @@
                     android:id="@+id/lgphone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Phone"
+                    android:hint="Phone/Email"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:textColor="@color/black">

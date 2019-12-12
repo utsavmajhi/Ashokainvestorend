@@ -2,28 +2,27 @@ package com.example.ashokainvestorend.investedpoolrecyclerdata;
 
 public class invespoolitems {
 
-    private String mImageurl;
-
-    public invespoolitems(String mImageurl, String poolname, String area, String location, String report, String profit) {
-        this.mImageurl = mImageurl;
-        this.poolname = poolname;
-        this.area = area;
-        this.location = location;
-        Report = report;
-        this.profit = profit;
-    }
-
+    private String poolid;
+    private String engineerid;
     private String poolname;
-    private String area;
+    private String totalinvests;
     private String location;
     private String Report;
-
-    public String getmImageurl() {
-        return mImageurl;
+    private String prevprofit;
+    public String getPoolid() {
+        return poolid;
     }
 
-    public void setmImageurl(String mImageurl) {
-        this.mImageurl = mImageurl;
+    public void setPoolid(String poolid) {
+        this.poolid = poolid;
+    }
+
+    public String getEngineerid() {
+        return engineerid;
+    }
+
+    public void setEngineerid(String engineerid) {
+        this.engineerid = engineerid;
     }
 
     public String getPoolname() {
@@ -34,12 +33,12 @@ public class invespoolitems {
         this.poolname = poolname;
     }
 
-    public String getArea() {
-        return area;
+    public String getTotalinvests() {
+        return totalinvests;
     }
 
-    public void setArea(String area) {
-        this.area = area;
+    public void setTotalinvests(String totalinvests) {
+        this.totalinvests = totalinvests;
     }
 
     public String getLocation() {
@@ -58,13 +57,24 @@ public class invespoolitems {
         Report = report;
     }
 
-    public String getProfit() {
-        return profit;
+    public String getPrevprofit() {
+        return prevprofit;
     }
 
-    public void setProfit(String profit) {
-        this.profit = profit;
+    public void setPrevprofit(String prevprofit) {
+        this.prevprofit = prevprofit;
     }
 
-    private String profit;
+    public invespoolitems(String poolid, String engineerid, String poolname, String totalinvests, String location, String report, String prevprofit) {
+        this.poolid = poolid;
+        this.engineerid = engineerid;
+        this.poolname = poolname;
+        this.totalinvests = totalinvests;
+        this.location = location;
+        Report = report;
+        this.prevprofit = prevprofit;
+    }
+
+
+
 }

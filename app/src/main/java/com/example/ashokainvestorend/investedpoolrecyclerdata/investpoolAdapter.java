@@ -52,8 +52,8 @@ public class investpoolAdapter extends RecyclerView.Adapter<investpoolAdapter.My
 
 
         holder.mpoolname.setText(mpoolitemslist.get(position).getPoolname());
-        holder.mprofit.setText(mpoolitemslist.get(position).getProfit());
-        holder.marea.setText(mpoolitemslist.get(position).getArea());
+        holder.mprofit.setText(mpoolitemslist.get(position).getPrevprofit());
+        holder.mtotinvestments.setText(mpoolitemslist.get(position).getTotalinvests());
         holder.mlocation.setText(mpoolitemslist.get(position).getLocation());
         //holder set imageview for now there is default set(USE PICASSO METHOD TO LOAD IMAGES)
         //Picasso.with(this).load().into();
@@ -67,18 +67,23 @@ public class investpoolAdapter extends RecyclerView.Adapter<investpoolAdapter.My
                 String pname=m.getPoolname();
                 String plocation=m.getLocation();
                 String preport=m.getReport();
-                String parea=m.getArea();
-                String pprofit=m.getProfit();
-                String pimage=m.getmImageurl();
+                String ptotinvests=m.getTotalinvests();
+                String pprofit=m.getPrevprofit();
                 Toast.makeText(mContext, "entered inpoolexpand"+pname, Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(view.getContext(), invpoolexpand.class);
-                i.putExtra(EXTRA_URL,pimage);
+
+                //send the data to the next page
+                /*i.putExtra(EXTRA_URL,pimage);
                 i.putExtra(EXTRA_NAME,pname);
                 i.putExtra(EXTRA_AREA,parea);
                 i.putExtra(EXTRA_LOCATION,plocation);
                 i.putExtra(EXTRA_REPORT,preport);
                 i.putExtra(EXTRA_PROFIT,pprofit);
+
+                 */
                 view.getContext().startActivity(i);
+
+
             }
         });
         //Click listener ends
@@ -95,7 +100,7 @@ public class investpoolAdapter extends RecyclerView.Adapter<investpoolAdapter.My
         public CircleImageView mimageView;
         public TextView mpoolname;
         public TextView mlocation;
-        public TextView marea;
+        public TextView mtotinvestments;
         public TextView mprofit;
         //public TextView mreport;
         //public TextView mextraattribute;
@@ -104,7 +109,7 @@ public class investpoolAdapter extends RecyclerView.Adapter<investpoolAdapter.My
             mimageView=itemView.findViewById(R.id.poolimage);
             mpoolname=itemView.findViewById(R.id.pname);
             mlocation=itemView.findViewById(R.id.pooladdresstxt);
-            marea=itemView.findViewById(R.id.poolarea);
+            mtotinvestments=itemView.findViewById(R.id.poolarea);
             mprofit=itemView.findViewById(R.id.poolprofit);
 
         }

@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -33,6 +34,14 @@ public class homepage extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
         mtoolbar=(Toolbar)findViewById(R.id.main_page_toolbar);
 
+
+        SharedPreferences sharedPreferences=getSharedPreferences("Secrets",MODE_PRIVATE);
+        String currentusername=sharedPreferences.getString("username","");
+        String currentemail=sharedPreferences.getString("email","");
+        String currentph=sharedPreferences.getString("phone","");
+        String currentaadhar=sharedPreferences.getString("aadhar","");
+        String currenttoken=sharedPreferences.getString("token","");
+
         setSupportActionBar(mtoolbar);
         getSupportActionBar().setTitle("Ashoka Investor");
       //NAVIGATION BAR DIRECTLY IMPORTED FROM MIKEPENZ
@@ -40,7 +49,7 @@ public class homepage extends AppCompatActivity {
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.header)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Utsav Majhi").withEmail("deadsnipper@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile_photo))
+                        new ProfileDrawerItem().withName(currentusername).withEmail(currentemail).withIcon(getResources().getDrawable(R.drawable.profile_photo))
                 )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
@@ -94,7 +103,17 @@ public class homepage extends AppCompatActivity {
                             case 4:
                                   //  logout();
                                 Toast.makeText(homepage.this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
+                                //during logout
+
+                                //during logout activity ends
+                                //clear shared preferences
+                                SharedPreferences pref = getApplicationContext().getSharedPreferences("Secrets", MODE_PRIVATE);
+                                SharedPreferences.Editor editor=pref.edit();
+                                editor.clear();
+                                editor.apply();
+
                                 startActivity(new Intent(homepage.this,MainActivity.class));
+                                finish();
                                 break;
 
                         }

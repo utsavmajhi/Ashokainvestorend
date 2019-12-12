@@ -58,8 +58,8 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
 
 
         holder.mpoolname.setText(mpoolitemslist.get(position).getPoolname());
-        holder.mprofit.setText(mpoolitemslist.get(position).getProfit());
-        holder.marea.setText(mpoolitemslist.get(position).getArea());
+        holder.mprofit.setText(mpoolitemslist.get(position).getPrevprofit());
+        holder.mtotinvestments.setText(mpoolitemslist.get(position).getTotalinvests());
         holder.mlocation.setText(mpoolitemslist.get(position).getLocation());
          //holder set imageview for now there is default set(USE PICASSO METHOD TO LOAD IMAGES)
         //Picasso.with(this).load().into();
@@ -74,17 +74,17 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
                 String pname=m.getPoolname();
                 String plocation=m.getLocation();
                 String preport=m.getReport();
-                String parea=m.getArea();
-                String pprofit=m.getProfit();
-                String pimage=m.getmImageurl();
+                String ptotinvest=m.getTotalinvests();
+                String pprofit=m.getPrevprofit();
+                //String pimage=m.getmImageurl();
                 Toast.makeText(mContext, "entered apoolexpand"+pname, Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(view.getContext(), apoolexpand_activity.class);
-                i.putExtra(EXTRA_URL,pimage);
+              /*  i.putExtra(EXTRA_URL,pimage);
                 i.putExtra(EXTRA_NAME,pname);
                 i.putExtra(EXTRA_AREA,parea);
                 i.putExtra(EXTRA_LOCATION,plocation);
                 i.putExtra(EXTRA_REPORT,preport);
-                i.putExtra(EXTRA_PROFIT,pprofit);
+                i.putExtra(EXTRA_PROFIT,pprofit);*/
                 view.getContext().startActivity(i);
 
 
@@ -109,7 +109,7 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
         public CircleImageView mimageView;
         public TextView mpoolname;
         public TextView mlocation;
-        public TextView marea;
+        public TextView mtotinvestments;
         public TextView mprofit;
         //public TextView mextraattribute;
         public MyViewHolder(@NonNull final View itemView) {
@@ -118,7 +118,7 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
             mimageView=itemView.findViewById(R.id.poolimage);
             mpoolname=itemView.findViewById(R.id.pname);
             mlocation=itemView.findViewById(R.id.pooladdresstxt);
-            marea=itemView.findViewById(R.id.poolarea);
+            mtotinvestments=itemView.findViewById(R.id.poolarea);
             mprofit=itemView.findViewById(R.id.poolprofit);
 
            /* itemView.setOnClickListener(new View.OnClickListener() {

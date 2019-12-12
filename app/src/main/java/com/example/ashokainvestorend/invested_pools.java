@@ -1,6 +1,7 @@
 package com.example.ashokainvestorend;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,20 +13,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.ashokainvestorend.investedpoolrecyclerdata.Getinvestedpoolformat;
+import com.example.ashokainvestorend.investedpoolrecyclerdata.Pool;
 import com.example.ashokainvestorend.investedpoolrecyclerdata.invespoolitems;
 import com.example.ashokainvestorend.investedpoolrecyclerdata.investpoolAdapter;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -34,6 +37,7 @@ import java.util.ArrayList;
 public class invested_pools extends Fragment {
 
     private RecyclerView mRecyclerView;
+    int previnv=0;
     private investpoolAdapter recycleradapter;
     private RequestQueue mRequestQueue;
     View v;
@@ -41,11 +45,13 @@ public class invested_pools extends Fragment {
     private ArrayList<invespoolitems> tempList;
     public invested_pools() {
         // Required empty public constructor
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_invested_pools, container, false);
         mRecyclerView=view.findViewById(R.id.investedrecycler);
@@ -66,6 +72,15 @@ public class invested_pools extends Fragment {
     }
 
     private void AmbilData() {
+
+        SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("Secrets",MODE_PRIVATE);
+        String currentusername=sharedPreferences.getString("username","");
+        String currentemail=sharedPreferences.getString("email","");
+        String currentph=sharedPreferences.getString("phone","");
+        String currentaadhar=sharedPreferences.getString("aadhar","");
+        String currenttoken=sharedPreferences.getString("token","");
+
+        /*
         String url="https://pixabay.com/api/?key=5303976-fd6581ad4ac165d1b75cc15b3&q=kitten&image_type=photo&pretty=true";
         JsonObjectRequest request=new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -100,9 +115,57 @@ public class invested_pools extends Fragment {
         });
 
         Volley.newRequestQueue(getActivity()).add(request);
+        */
+
+
+        //backend retrofit
+
+        Retrofit.Builder builder=new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
+                .addConverterFactory(GsonConverterFactory.create());
+        Retrofit retrofit=builder.build();
+        ApiInterface apiInterface=retrofit.create(ApiInterface.class);
+        Call<Getinvestedpoolformat> call=apiInterface.getinvestedpools(currenttoken);
+        call.enqueue(new Callback<Getinvestedpoolformat>() {
+            @Override
+            public void onResponse(Call<Getinvestedpoolformat> call, Response<Getinvestedpoolformat> response) {
+                if(response.isSuccessful())
+                {
+                    List<Pool> invpool=response.body().getPools();
+                    for(int i=0;i<invpool.size();i++)
+                    {
+                        String pname=invpool.get(i).getName();
+                        String poolid=invpool.get(i).getId();
+                        String poolengineerid=invpool.get(i).getEngineerId();
+                        String plocation=invpool.get(i).getLocation();
+                        String ptotinvests= String.valueOf(invpool.get(i).getTotalInvestment());
+                        String profits= String.valueOf(invpool.get(i).getPrevProfits());
+                        listdata.add(new invespoolitems(poolid,poolengineerid,pname,ptotinvests,plocation,"",profits));
+                        recycleradapter.notifyDataSetChanged();
+                    }
+                    recycleradapter = new investpoolAdapter(getActivity(),listdata);
+                    mRecyclerView.setAdapter(recycleradapter);
+                    /*
+                    listdata.clear();
+                    listdata.addAll(tempList);
+                    recycleradapter.notifyDataSetChanged();*/
+
+                }
+                else {
+                    Toast.makeText(getContext(), "Error:"+response.code(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Getinvestedpoolformat> call, Throwable t) {
+                Toast.makeText(getContext(), "Error:"+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 
 
     }
+
 
 }
