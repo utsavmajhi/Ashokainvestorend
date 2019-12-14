@@ -190,8 +190,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:layout_marginTop="16dp"
-                    android:text="Total Investments in this Pool"
-                    android:textSize="18sp"
+                    android:text="My total Investments in this Pool"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

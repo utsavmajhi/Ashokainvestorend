@@ -70,7 +70,7 @@ public class investpoolAdapter extends RecyclerView.Adapter<investpoolAdapter.My
                 String preport=m.getReport();
                 String ptotinvests=m.getTotalinvests();
                 String pprofit=m.getPrevprofit();
-                Toast.makeText(mContext, "entered inpoolexpand"+pid, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, "entered inpoolexpand"+pid, Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(view.getContext(), invpoolexpand.class);
                 i.putExtra("ID_EXTRA",new String[]{pid,pname,plocation,preport,ptotinvests,pprofit});
 

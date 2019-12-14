@@ -108,7 +108,7 @@ public class invpoolexpand extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(invpoolexpand.this, "Error:"+response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(invpoolexpand.this,response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -159,7 +159,7 @@ public class invpoolexpand extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(invpoolexpand.this, "Error:"+response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(invpoolexpand.this, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 

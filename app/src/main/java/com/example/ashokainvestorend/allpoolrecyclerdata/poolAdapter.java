@@ -78,7 +78,7 @@ public class poolAdapter extends RecyclerView.Adapter<poolAdapter.MyViewHolder>{
                 String ptotinvest=m.getTotalinvests();
                 String pprofit=m.getPrevprofit();
                 //String pimage=m.getmImageurl();
-                Toast.makeText(mContext, "entered apoolexpand"+pname, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, "entered apoolexpand"+pname, Toast.LENGTH_SHORT).show();
                 Intent i=new Intent(view.getContext(), apoolexpand_activity.class);
                 i.putExtra("ID_EXTRA",new String[]{pid,pname,plocation,ptotinvest,pprofit});
                 view.getContext().startActivity(i);
