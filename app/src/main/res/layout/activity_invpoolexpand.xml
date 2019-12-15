@@ -200,7 +200,7 @@
                     android:id="@+id/inexowninv"
                     android:layout_width="91dp"
                     android:layout_height="22dp"
-                    android:text="Rs 123400"
+                    android:text="Rs 0"
                     android:textSize="17sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/moredetailtranbtn"

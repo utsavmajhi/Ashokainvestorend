@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class invpoolexpand extends AppCompatActivity {
         plinvestyou=findViewById(R.id.inexowninv);
         plreport=findViewById(R.id.inexreport);
         plarea=findViewById(R.id.inexarea);
+        plreport.setMovementMethod(new ScrollingMovementMethod());
 
 
 
@@ -86,7 +88,7 @@ public class invpoolexpand extends AppCompatActivity {
         String selectedpoolid=intent.getStringArrayExtra("ID_EXTRA")[0];
 
         Retrofit.Builder builder=new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
+                .baseUrl("https://ashokabackend.herokuapp.com/")//change it afterwards when everthing is hosted
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit=builder.build();
         ApiInterface apiInterface=retrofit.create(ApiInterface.class);
@@ -133,7 +135,7 @@ public class invpoolexpand extends AppCompatActivity {
         String selectedpoolid=intent.getStringArrayExtra("ID_EXTRA")[0];
 
         Retrofit.Builder builder=new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
+                .baseUrl("https://ashokabackend.herokuapp.com/")//change it afterwards when everthing is hosted
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit=builder.build();
         ApiInterface apiInterface=retrofit.create(ApiInterface.class);

@@ -22,12 +22,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class paymentpage extends AppCompatActivity {
     private Toolbar toolbar;
     private EditText amountinvest;
+    private EditText email,cardname,expiry,cvvcode,cardno;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paymentpage);
         toolbar=findViewById(R.id.paytoolbar);
         amountinvest=findViewById(R.id.amtinvested);
+        email=findViewById(R.id.em);
+        cardname=findViewById(R.id.nc);
+        expiry=findViewById(R.id.ed);
+        cvvcode=findViewById(R.id.cvv);
+        cardno=findViewById(R.id.cm);
 
 
 
@@ -41,11 +47,12 @@ public class paymentpage extends AppCompatActivity {
 
     public void payclick(View view) {
         int myamt;
+        String cardn=cardname.getText().toString();
+        String cardnum=cardno.getText().toString();
+        String cardemail=email.getText().toString();
+        String cardexpiry=expiry.getText().toString();
+        String cardcvv=cvvcode.getText().toString();
         SharedPreferences sharedPreferences=getSharedPreferences("Secrets",MODE_PRIVATE);
-        String currentusername=sharedPreferences.getString("username","");
-        String currentemail=sharedPreferences.getString("email","");
-        String currentph=sharedPreferences.getString("phone","");
-        String currentaadhar=sharedPreferences.getString("aadhar","");
         String currenttoken=sharedPreferences.getString("token","");
         Intent intent=getIntent();
         String poolid=intent.getStringExtra("poolid");
@@ -61,34 +68,42 @@ public class paymentpage extends AppCompatActivity {
             // handle the exception
             myamt=0;
         }
+        if(myamt==0||cardn.isEmpty()||cardnum.isEmpty()||cardemail.isEmpty()||cardexpiry.isEmpty()||cardcvv.isEmpty())
+        {
 
-        Retrofit.Builder builder=new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
-                .addConverterFactory(GsonConverterFactory.create());
-        Retrofit retrofit=builder.build();
-        ApiInterface apiInterface=retrofit.create(ApiInterface.class);
-        Paymentsendformat sendpaydet=new Paymentsendformat(poolid,myamt);
-        Call<Paymentgetformat> call=apiInterface.sendpaymentdet(currenttoken,sendpaydet);
-        call.enqueue(new Callback<Paymentgetformat>() {
-            @Override
-            public void onResponse(Call<Paymentgetformat> call, Response<Paymentgetformat> response) {
-                if(response.isSuccessful())
-                {
-                    Toast.makeText(paymentpage.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(paymentpage.this, homepage.class));
-                    finish();
-                }
-                else
-                {
-                    Toast.makeText(paymentpage.this, "error:"+response.message(), Toast.LENGTH_SHORT).show();
-                }
-            }
+            Toast.makeText(this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
 
-            @Override
-            public void onFailure(Call<Paymentgetformat> call, Throwable t) {
-                Toast.makeText(paymentpage.this, "Error:"+t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        }
+        else
+        {
+            Retrofit.Builder builder=new Retrofit.Builder()
+                    .baseUrl("https://ashokabackend.herokuapp.com/")//change it afterwards when everthing is hosted
+                    .addConverterFactory(GsonConverterFactory.create());
+            Retrofit retrofit=builder.build();
+            ApiInterface apiInterface=retrofit.create(ApiInterface.class);
+            Paymentsendformat sendpaydet=new Paymentsendformat(poolid,myamt);
+            Call<Paymentgetformat> call=apiInterface.sendpaymentdet(currenttoken,sendpaydet);
+            call.enqueue(new Callback<Paymentgetformat>() {
+                @Override
+                public void onResponse(Call<Paymentgetformat> call, Response<Paymentgetformat> response) {
+                    if(response.isSuccessful())
+                    {
+                        Toast.makeText(paymentpage.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(paymentpage.this, homepage.class));
+                        finish();
+                    }
+                    else
+                    {
+                        Toast.makeText(paymentpage.this, "error:"+response.message(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Paymentgetformat> call, Throwable t) {
+                    Toast.makeText(paymentpage.this, "Error:"+t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
 
 
     }

@@ -32,6 +32,7 @@ public class apoolexpand_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apoolexpand_activity);
         report=findViewById(R.id.apreporttxt);
+        report.setMovementMethod(new ScrollingMovementMethod());
         poolname=findViewById(R.id.apoolname);
         poollocation=findViewById(R.id.apoollocatxt);
         pooltotinvest=findViewById(R.id.aptotalinvested);
@@ -67,12 +68,12 @@ public class apoolexpand_activity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //for vertical scrolling method
-        report.setMovementMethod(new ScrollingMovementMethod());
+
 
 
         //for report and description
         Retrofit.Builder builder=new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
+                .baseUrl("https://ashokabackend.herokuapp.com/")//change it afterwards when everthing is hosted
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit=builder.build();
         ApiInterface apiInterface=retrofit.create(ApiInterface.class);

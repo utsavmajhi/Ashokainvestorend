@@ -19,7 +19,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/em"
         android:layout_width="337dp"
         android:layout_height="46dp"
         android:layout_marginTop="40dp"
@@ -36,21 +36,20 @@
         android:layout_marginBottom="8dp"
         android:text="Email"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="@+id/editText" />
+        app:layout_constraintBottom_toTopOf="@+id/em"
+        app:layout_constraintStart_toStartOf="@+id/em" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/cm"
         android:layout_width="340dp"
         android:layout_height="49dp"
         android:layout_marginTop="32dp"
-        android:drawableRight="@drawable/mc_vrt_opt_pos_46_2x"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/em" />
 
     <TextView
         android:id="@+id/textView10"
@@ -58,18 +57,18 @@
         android:layout_height="wrap_content"
         android:text="Card Information"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
-        app:layout_constraintStart_toStartOf="@+id/editText2" />
+        app:layout_constraintBottom_toTopOf="@+id/cm"
+        app:layout_constraintStart_toStartOf="@+id/cm" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/ed"
         android:layout_width="134dp"
         android:layout_height="49dp"
         android:layout_marginTop="44dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintStart_toStartOf="@+id/cm"
+        app:layout_constraintTop_toBottomOf="@+id/cm" />
 
     <TextView
         android:id="@+id/textView11"
@@ -77,21 +76,21 @@
         android:layout_height="wrap_content"
         android:text="Expiry Date"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
-        app:layout_constraintStart_toStartOf="@+id/editText3" />
+        app:layout_constraintBottom_toTopOf="@+id/ed"
+        app:layout_constraintStart_toStartOf="@+id/ed" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/cvv"
         android:layout_width="201dp"
         android:layout_height="49dp"
         android:ems="10"
         android:hint="CVV"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/editText3"
-        app:layout_constraintTop_toTopOf="@+id/editText3" />
+        app:layout_constraintStart_toEndOf="@+id/ed"
+        app:layout_constraintTop_toTopOf="@+id/ed" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/nc"
         android:layout_width="333dp"
         android:layout_height="49dp"
         android:layout_marginTop="20dp"
@@ -101,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/ed" />
 
     <EditText
         android:id="@+id/amtinvested"
@@ -111,8 +110,8 @@
         android:ems="10"
         android:hint="Amount"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/editText5"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintStart_toStartOf="@+id/nc"
+        app:layout_constraintTop_toBottomOf="@+id/nc" />
 
     <Button
         android:id="@+id/button"

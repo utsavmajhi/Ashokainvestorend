@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Signing In Please Wait!", Toast.LENGTH_SHORT).show();
             //BACKEND JSON PART FOR LOGIN
             Retrofit.Builder builder=new Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:5000/")//change it afterwards when everthing is hosted
+                    .baseUrl("https://ashokabackend.herokuapp.com/")//change it afterwards when everthing is hosted
                     .addConverterFactory(GsonConverterFactory.create());
             Retrofit retrofit=builder.build();
             ApiInterface apiInterface=retrofit.create(ApiInterface.class);

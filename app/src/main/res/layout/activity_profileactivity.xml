@@ -103,7 +103,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="Rs 124343"
+                        android:text="Rs 0"
                         android:textColor="@color/md_dark_primary_text"
                         android:textSize="25sp"
                         android:textStyle="bold" />
@@ -246,7 +246,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="Rs 300000"
+                        android:text="Rs 0"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
