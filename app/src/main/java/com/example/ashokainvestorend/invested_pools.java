@@ -163,7 +163,7 @@ public class invested_pools extends Fragment {
 
                 }
                 else {
-                    Toast.makeText(getContext(), "Error:"+response.code(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
