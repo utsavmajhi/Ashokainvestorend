@@ -4,4 +4,4 @@
 
 ## Screenshots
 
-<img src="https://github.com/utsavmajhi/Ashokainvestorend/blob/master/temp/partinvestorregis.gif" width="220" height="400" title="" alt=""></a>
+<img src="https://github.com/utsavmajhi/Ashokainvestorend/blob/master/temp/5.gif" width="220" height="400" title="" alt=""></a>
